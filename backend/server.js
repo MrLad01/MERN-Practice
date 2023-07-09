@@ -5,6 +5,7 @@ const app = express();
 const session = require('express-session')
 require('./database')
 const loginRoute = require('./Routes/login')
+const registerRoute = require('./Routes/register')
 
 
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/user', loginRoute)
+app.use('/user', registerRoute)
 
 app.use((req, res, next) => {
     if(req.session.user) next();
