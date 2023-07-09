@@ -5,7 +5,7 @@ require('mongoose')
 
 const userSchema = new mongoose.Schema({
     id: {
-        type: mongoose.SchemaTypes.number,
+        type: mongoose.SchemaTypes.Number,
     },
     first_name: {
         type: mongoose.SchemaTypes.String,
