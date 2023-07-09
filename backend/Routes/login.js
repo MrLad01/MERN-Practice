@@ -7,13 +7,13 @@ router.post('/login', async(req, res) => {
 
     if(!email || !password ) res.send(400)
     const UserFile = await User.findOne({email})
-    if(!UserFile) return req.send(401);
+    if(!UserFile) return res.sendStatus(401);
     
     if(password === UserFile.password) {
         req.session.user = UserFile
-        return res.send(200)
+        return res.sendStatus(200)
     } else {
-        return res.send(401)
+        return res.sendStatus(401)
     }
 })
 module.exports = router;

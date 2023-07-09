@@ -20,13 +20,14 @@ app.listen(4000, ()=>{
     console.log("Hello");
 })
 
-app.use((req, res) => {
-    console.log(`${req.url} : ${req.method}`)
+app.use((req, res, next) => {
+    console.log(`${req.url}  ${req.method}`)
+    next()
 })
+
+app.use('/user', loginRoute)
 
 app.use((req, res, next) => {
     if(req.session.user) next();
     else res.send(401);
 })
-
-app.use('/user', loginRoute)
