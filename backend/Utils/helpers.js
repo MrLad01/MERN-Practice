@@ -10,4 +10,4 @@ function comparePassword(raw, hash){
 }
 
 
-module.exports = {hashPassword}
+module.exports = {hashPassword, comparePassword}
