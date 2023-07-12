@@ -1,6 +1,7 @@
 const  { Router } = require('express');
 const router = Router();
 const User = require('../Models/userSchema')
+require('../Utils/helpers')
 
 
 router.post('/register', async(req, res) => {
