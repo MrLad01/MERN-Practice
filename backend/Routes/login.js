@@ -3,6 +3,7 @@ const router = Router();
 const User = require('../Models/userSchema');
 const { comparePassword } = require('../Utils/helpers');
 const passport = require('passport')
+require('../Strategies/local')
 
 
 // router.post('/login', async(req, res) => {
