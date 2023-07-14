@@ -25,7 +25,7 @@ passport.use(
                 console.log("Failed to Authenticate");
                 done(null, null)
             }
-        } catch{
+        } catch(err){
             console.error(err);
             done(err, null)
         }

@@ -21,10 +21,10 @@ const passport = require('passport')
 //     }
 // })
 
-router.post('/login', passport.authenticate('local', (req, res)=> {
+router.post('/login', passport.authenticate('local'), (req, res)=> {
     console.log('Logged in!');
     res.status(200).send('Welcome to the association you bloody thwart')
-}))
+})
 
 
 
