@@ -5,7 +5,8 @@ const app = express();
 const session = require('express-session')
 require('./database')
 const loginRoute = require('./Routes/login')
-const registerRoute = require('./Routes/register')
+const registerRoute = require('./Routes/register');
+const passport = require('passport');
 
 
 app.use(bodyParser.json());
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
     console.log(`${req.url}  ${req.method}`)
     next()
 })
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/user', loginRoute)
 app.use('/user', registerRoute)
