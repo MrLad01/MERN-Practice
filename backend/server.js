@@ -6,7 +6,8 @@ const session = require('express-session')
 require('./database')
 const loginRoute = require('./Routes/login')
 const registerRoute = require('./Routes/register');
-const passport = require('passport');
+const MongoStore = require('connect-mongo')
+const passport = require('passport')
 
 
 app.use(bodyParser.json());
@@ -15,7 +16,10 @@ app.use(cookieParser());
 app.use(session({
     secret: "ladindin",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: "mongodb://127.0.0.1:27017/practice"
+    })
 }))
 
 app.listen(4000, ()=>{
