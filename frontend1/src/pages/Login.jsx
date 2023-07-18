@@ -4,7 +4,7 @@ import { Form } from 'react-router-dom'
 const Login = () => {
   return (
     <React.Fragment>
-        <Form>
+        <Form className='login'>
             <label htmlFor="email">E-mail</label>
             <input type="text" placeholder='Enter your email address' />
             <label htmlFor="password">Password</label>

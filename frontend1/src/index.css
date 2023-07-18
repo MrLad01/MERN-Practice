@@ -3,3 +3,8 @@
 *{
     font-family: "Amazon Ember";
 }
+
+.login{
+    display: flex;
+    flex-direction: column;
+}
