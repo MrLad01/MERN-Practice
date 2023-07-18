@@ -9,6 +9,7 @@ const Login = () => {
             <input type="text" placeholder='Enter your email address' />
             <label htmlFor="password">Password</label>
             <input type="text" placeholder='Enter your password' />
+            <button type="submit">Log in</button>
         </Form>
     </React.Fragment>
   )
