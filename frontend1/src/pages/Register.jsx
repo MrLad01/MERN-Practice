@@ -16,7 +16,7 @@ const Register = () => {
             <input type="password" placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
             <button type="submit">Log in</button>
         </Form>
-        <p>If you don't have an account yet,<Link to="/register"> click here to register</Link></p>
+        <p>If you already have an account<Link to="/login"> click here to login</Link></p>
     </React.Fragment>
   )
 }
