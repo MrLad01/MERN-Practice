@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form } from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -16,6 +16,7 @@ const Login = () => {
             <input type="password" placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
             <button type="submit">Log in</button>
         </Form>
+        <p>If you don't have an account yet,<Link to="/register"> click here to register</Link></p>
     </React.Fragment>
   )
 }
