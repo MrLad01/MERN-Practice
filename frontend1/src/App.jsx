@@ -4,7 +4,7 @@ import Login from './pages/Login'
 
 const App = () => {
 
-  const route = createBrowserRouter(
+  const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         <Route path='/login' element={<Login />} />
@@ -13,7 +13,7 @@ const App = () => {
   )
 
   return (
-    <RouterProvider route={route} />
+    <RouterProvider router={router} />
   )
 }
 
