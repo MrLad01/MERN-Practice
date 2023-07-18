@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from 'react-router-dom'
 import Login from './pages/Login'
+import Register from './pages/Register'
 
 const App = () => {
 
@@ -8,6 +9,7 @@ const App = () => {
     createRoutesFromElements(
       <Route>
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
       </Route>
     )
   )
