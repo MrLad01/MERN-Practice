@@ -35,11 +35,24 @@ const Register = () => {
     <React.Fragment>
         <Form method='post' className='register' onSubmit={submit}>
 
+            <label htmlFor="id">Id</label>
+            <input type="number" name='id'  value={id} onChange={(e)=> setId(e.target.value)} />
+
             <label htmlFor="first_name">Enter your First Name</label>
             <input type="text" placeholder='e.g John' name='first_name' value={first_name} onChange={(e)=>setFirst_name(e.target.value)} />
 
             <label htmlFor="last_name">Enter your Last Name</label>
             <input type="text" placeholder='e.g Doe' name='last_name' value={last_name} onChange={(e)=>setLast_name(e.target.value)} />
+
+            <label htmlFor="gender">Select your gender</label>
+            <select name="gender" id="gender" value={gender} onChange={(e)=>setGender(e.target.value)}>
+              <option value="">- Select your gender -</option>
+              <option value="Male">Male</option>
+              <option  value="Female">Female</option>
+            </select>
+
+            <label htmlFor="ip_address">Enter your ip_address</label>
+            <input type="number" name='ip_address' placeholder='Enter your ip_address' value={ip_address} onChange={(e)=> setIp_address(e.target.value)} />
 
             <label htmlFor="email">E-mail</label>
             <input type="email" name='email' placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
@@ -51,7 +64,7 @@ const Register = () => {
             <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enten your password' />
             {password === password1 ? <></> : <p>Password does not match</p>}
 
-            
+
             <button type="submit">Log in</button>
         </Form>
         <p>If you already have an account<Link to="/login"> click here to login</Link></p>
