@@ -26,7 +26,7 @@ const Register = () => {
 
         console.log(response);
       } catch(err){
-        console.error(err.message)
+        console.error(err.message);
       }
     }
 

@@ -42,7 +42,7 @@ passport.use(
                 console.log("Authenticated Successfully");
                 done(null, userFile)
             } else {
-                console.log("Failed to Authenticate");
+                console.log("Incorrect username or password");
                 done(null, null)
             }
         } catch(err){
