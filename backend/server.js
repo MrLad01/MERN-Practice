@@ -8,6 +8,7 @@ const loginRoute = require('./Routes/login')
 const registerRoute = require('./Routes/register');
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
+const cors = require('cors')
 
 
 app.use(bodyParser.json());
@@ -21,6 +22,7 @@ app.use(session({
         mongoUrl: "mongodb://127.0.0.1:27017/practice"
     })
 }))
+app.use(cors);
 
 app.listen(4000, ()=>{
     console.log("Hello");
