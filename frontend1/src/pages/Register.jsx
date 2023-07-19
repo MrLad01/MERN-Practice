@@ -9,7 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password1, setPassword1] = useState('')
-    id, ip_address
+    // id, ip_address
 
 
   return (
@@ -20,7 +20,7 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <input type="password" name='password' placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
             <label htmlFor="password1">Confirm Password</label>
-            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} />
+            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enten your password' />
             {password === password1 ? <></> : <p>Password does not match</p>}
             <button type="submit">Log in</button>
         </Form>
