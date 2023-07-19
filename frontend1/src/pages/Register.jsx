@@ -12,7 +12,7 @@ const Register = () => {
     const [ip_address, setIp_address] = useState('')
     const [password, setPassword] = useState('')
     const [password1, setPassword1] = useState('')
-    // id, ip_address
+    
 
     async function submit(e) {
       e.preventDefault();
