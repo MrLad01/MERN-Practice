@@ -6,10 +6,25 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    async function submit(e) {
+      e.preventDefault();
+      try{
+        const body = { email, password }
+        const response = await fetch('localhost:4000/login', {
+          method: 'POST',
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(body)
+        });
+
+        console.log(response);
+      } catch(err){
+        console.error(err.message)
+      }
+    }
 
   return (
     <React.Fragment>
-        <Form className='login'>
+        <Form method='post' className='login' onSubmit={submit}>
             <label htmlFor="email">E-mail</label>
             <input type="email" placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
             <label htmlFor="password">Password</label>
