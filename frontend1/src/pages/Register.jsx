@@ -52,7 +52,7 @@ const Register = () => {
             </select>
 
             <label htmlFor="ip_address">Enter your ip_address</label>
-            <input type="number" name='ip_address' placeholder='Enter your ip_address' value={ip_address} onChange={(e)=> setIp_address(e.target.value)} />
+            <input type="text" name='ip_address' placeholder='Enter your ip_address' value={ip_address} onChange={(e)=> setIp_address(e.target.value)} />
 
             <label htmlFor="email">E-mail</label>
             <input type="email" name='email' placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
