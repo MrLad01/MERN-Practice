@@ -34,6 +34,10 @@ const Register = () => {
   return (
     <React.Fragment>
         <Form method='post' className='register' onSubmit={submit}>
+            <label htmlFor="first_name">Enter your First Name</label>
+            <input type="text" placeholder='e.g John' name='first_name' value={first_name} onChange={(e)=>setFirst_name(e.target.value)} />
+            <label htmlFor="last_name">Enter your Last Name</label>
+            <input type="text" placeholder='e.g Doe' name='last_name' value={last_name} onChange={(e)=>setLast_name(e.target.value)} />
             <label htmlFor="email">E-mail</label>
             <input type="email" name='email' placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
             <label htmlFor="password">Password</label>
