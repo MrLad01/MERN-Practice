@@ -46,7 +46,7 @@ const Register = () => {
 
             <label htmlFor="gender">Select your gender</label>
             <select name="gender" id="gender" value={gender} onChange={(e)=>setGender(e.target.value)}>
-              <option value="">- Select your gender -</option>
+              <option value="" disabled>- Select your gender -</option>
               <option value="Male">Male</option>
               <option  value="Female">Female</option>
             </select>
