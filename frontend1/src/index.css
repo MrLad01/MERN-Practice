@@ -3,6 +3,6 @@
     gap: 10px;
 }
 
-.login label{
+.login label, .register label{
     margin-bottom: -10px;
 }
