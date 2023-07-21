@@ -61,7 +61,7 @@ const Register = () => {
             <input type="password" name='password' placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
 
             <label htmlFor="password1">Confirm Password</label>
-            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enten your password' />
+            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enter your password' />
             {password === password1 ? <></> : <p>Password does not match</p>}
 
 
