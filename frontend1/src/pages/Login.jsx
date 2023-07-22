@@ -24,6 +24,7 @@ const Login = () => {
 
   return (
     <React.Fragment>
+      <fieldset>
         <Form method='post' className='login' onSubmit={submit}>
             <label htmlFor="email">E-mail</label>
             <input type="email" placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
@@ -32,6 +33,7 @@ const Login = () => {
             <button type="submit">Log in</button>
         </Form>
         <p>If you don't have an account yet,<Link to="/register"> click here to register</Link></p>
+      </fieldset>
     </React.Fragment>
   )
 }
