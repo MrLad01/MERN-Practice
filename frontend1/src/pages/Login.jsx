@@ -27,9 +27,10 @@ const Login = () => {
       <fieldset>
         <Form method='post' className='login' onSubmit={submit}>
             <label htmlFor="email">E-mail</label>
-            <input type="email" placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
+            <input type="email" placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} required />
+
             <label htmlFor="password">Password</label>
-            <input type="password" placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
+            <input type="password" placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} required />
             <button type="submit">Log in</button>
         </Form>
         <p>If you don't have an account yet,<Link to="/register"> click here to register</Link></p>
