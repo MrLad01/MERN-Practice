@@ -1,6 +1,7 @@
 .login, .register{
     display: grid;
     gap: 10px;
+    max-width: 300px;
 }
 
 .login label, .register label{
