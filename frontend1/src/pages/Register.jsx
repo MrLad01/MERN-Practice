@@ -33,6 +33,7 @@ const Register = () => {
 
   return (
     <React.Fragment>
+      <fieldset>
         <Form method='post' className='register' onSubmit={submit}>
 
             <label htmlFor="id">Id</label>
@@ -68,6 +69,7 @@ const Register = () => {
             <button type="submit">Log in</button>
         </Form>
         <p>If you already have an account<Link to="/login"> click here to login</Link></p>
+      </fieldset>
     </React.Fragment>
   )
 }
