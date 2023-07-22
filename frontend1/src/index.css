@@ -8,3 +8,8 @@
 .login label, .register label{
     margin-bottom: -10px;
 }
+
+fieldset{
+    max-width: 400px;
+    margin: auto;
+}
