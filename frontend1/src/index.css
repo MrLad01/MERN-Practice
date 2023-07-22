@@ -2,6 +2,7 @@
     display: grid;
     gap: 10px;
     max-width: 300px;
+    margin: auto
 }
 
 .login label, .register label{
