@@ -37,32 +37,32 @@ const Register = () => {
         <Form method='post' className='register' onSubmit={submit}>
 
             <label htmlFor="id">Id</label>
-            <input type="number" name='id'  value={id} onChange={(e)=> setId(e.target.value)} />
+            <input type="number" name='id'  value={id} onChange={(e)=> setId(e.target.value)} required />
 
             <label htmlFor="first_name">Enter your First Name</label>
-            <input type="text" placeholder='e.g John' name='first_name' value={first_name} onChange={(e)=>setFirst_name(e.target.value)} />
+            <input type="text" placeholder='e.g John' name='first_name' value={first_name} onChange={(e)=>setFirst_name(e.target.value)} required />
 
             <label htmlFor="last_name">Enter your Last Name</label>
-            <input type="text" placeholder='e.g Doe' name='last_name' value={last_name} onChange={(e)=>setLast_name(e.target.value)} />
+            <input type="text" placeholder='e.g Doe' name='last_name' value={last_name} onChange={(e)=>setLast_name(e.target.value)} required />
 
             <label htmlFor="gender">Select your gender</label>
-            <select name="gender" id="gender" value={gender} onChange={(e)=>setGender(e.target.value)}>
+            <select name="gender" id="gender" value={gender} onChange={(e)=>setGender(e.target.value)} required >
               <option value="" disabled>- Select your gender -</option>
               <option value="Male">Male</option>
               <option  value="Female">Female</option>
             </select>
 
             <label htmlFor="ip_address">Enter your ip_address</label>
-            <input type="text" name='ip_address' placeholder='Enter your ip_address' value={ip_address} onChange={(e)=> setIp_address(e.target.value)} />
+            <input type="text" name='ip_address' placeholder='Enter your ip_address' value={ip_address} onChange={(e)=> setIp_address(e.target.value)} required  />
 
             <label htmlFor="email">E-mail</label>
-            <input type="email" name='email' placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} />
+            <input type="email" name='email' placeholder='Enter your email address' value={email} onChange={(e)=> setEmail(e.target.value)} required />
 
             <label htmlFor="password">Password</label>
-            <input type="password" name='password' placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} />
+            <input type="password" name='password' placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} required />
 
             <label htmlFor="password1">Confirm Password</label>
-            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enter your password' />
+            <input type="password" value={password1} onChange={(e)=> setPassword1(e.target.value)} placeholder='Re-enter your password' required />
             {password === password1 ? <></> : <p style={{marginTop: -7}}>Password does not match</p>}
 
 
