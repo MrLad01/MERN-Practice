@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { Form, Link } from 'react-router-dom'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(null)
+    const { dispatch } = useAuthContext()
 
     async function submit(e) {
       e.preventDefault();
