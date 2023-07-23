@@ -2,13 +2,18 @@ import React from 'react'
 import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const App = () => {
+
+  const { user } = useAuthContext()
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path='/login' element={<Login />} />
+        <Route path='/' element={!user ? <Login />: <p>Hello There!!!</p>} />
+        {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/register' element={<Register />} />
       </Route>
     )
