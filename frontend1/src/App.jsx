@@ -6,11 +6,13 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import Home from './pages/Home'
 import { AuthContextProvider } from '../context/AuthContext'
 
+
+
+
 const App = () => {
-
+  
   const { user } = useAuthContext()
-
-
+  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Routes>
