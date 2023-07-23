@@ -13,6 +13,8 @@ const Login = () => {
     async function submit(e) {
       e.preventDefault();
       try{
+        setIsLoading(true);
+        setError(null);
         const body = { email, password }
         const response = await fetch('http://localhost:4000/user/login', {
           method: 'POST',
