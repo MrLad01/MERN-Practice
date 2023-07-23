@@ -1,8 +1,9 @@
 import React from 'react'
-import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements, Routes } from 'react-router-dom'
+import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements, Routes, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import { useAuthContext } from '../hooks/useAuthContext'
+import Home from './pages/Home'
 
 const App = () => {
 
@@ -12,8 +13,8 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Routes>
-        <Route path='/' element={!user ? <Login />: <p>Hello There!!!</p>} />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/' element={user ? <Home />: <Navigate to="/login"/>} />
+        <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
     )
