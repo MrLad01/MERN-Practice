@@ -23,6 +23,18 @@ const Login = () => {
         });
 
         console.log(response);
+
+        if(!response.ok){
+          setIsLoading(false);
+          setError(json.error)
+        }
+
+
+        if(response.ok){
+          dispatch({type: 'LOGIN', payload: json})
+          setIsLoading(false)
+        }
+
       } catch(err){
         console.error(err.message)
       }
