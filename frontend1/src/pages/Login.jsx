@@ -49,7 +49,8 @@ const Login = () => {
 
             <label htmlFor="password">Password</label>
             <input type="password" placeholder='Enter your password' value={password} onChange={(e)=> setPassword(e.target.value)} required />
-            <button type="submit">Log in</button>
+            <button type="submit" disabled={isLoading} >Log in</button>
+            {error && <div>{ error }</div>}
         </Form>
         <p>If you don't have an account yet,<Link to="/register"> click here to register</Link></p>
       </fieldset>
