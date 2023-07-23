@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from 'react-router-dom'
+import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -11,11 +11,11 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route>
+      <Routes>
         <Route path='/' element={!user ? <Login />: <p>Hello There!!!</p>} />
         {/* <Route path='/login' element={<Login />} /> */}
         <Route path='/register' element={<Register />} />
-      </Route>
+      </Routes>
     )
   )
 
