@@ -26,7 +26,7 @@ const Home = () => {
     <div>
       {userData ? (
         <>
-          <h1>Welcome {userData.name}</h1>
+          <h1>Welcome {userData.first_name}</h1>
           {/* Render other user data here */}
         </>
       ) : (
