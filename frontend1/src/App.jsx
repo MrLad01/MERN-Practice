@@ -11,8 +11,7 @@ import { AuthContextProvider } from '../context/AuthContextProvider'
 
 const App = () => {
   
-  const { user } = useAuthContext()
-  
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <AuthContextProvider>
