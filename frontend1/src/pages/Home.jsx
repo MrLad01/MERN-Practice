@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Home = ({last_name}) => {
   const [user, setUser] = useState(null);
