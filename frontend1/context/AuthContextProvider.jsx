@@ -44,6 +44,7 @@ export const AuthContextProvider = ({ children, last_name }) => {
             throw new Error('Network response was not ok');
           }
           const userData = await response.json();
+          console.log('API Response:', userData); 
           dispatch({ type: 'LOGIN', payload: userData });
         } catch (error) {
           // Handle errors...
