@@ -33,28 +33,30 @@ export const AuthContextProvider = ({ children }) => {
       user: null
     });
   
-    useEffect(() => {
-      const fetchUser = async () => {
-        try {
-          // Make an API request to fetch user data by ID
-          const response = await fetch(`/api/users/${state.user.last_name}`);
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const userData = await response.json();
-          dispatch({ type: 'LOGIN', payload: userData });
-        } catch (error) {
-          // Handle errors...
-          console.error(error);
-        }
-      };
+    
+
+    // useEffect(() => {
+    //   const fetchUser = async () => {
+    //     try {
+    //       // Make an API request to fetch user data by ID
+    //       const response = await fetch(`/api/users/${state.user.last_name}`);
+    //       if (!response.ok) {
+    //         throw new Error('Network response was not ok');
+    //       }
+    //       const userData = await response.json();
+    //       dispatch({ type: 'LOGIN', payload: userData });
+    //     } catch (error) {
+    //       // Handle errors...
+    //       console.error(error);
+    //     }
+    //   };
   
-      if (state.user) {
-        fetchUser();
-      }
-    }, [state.user]);
+    //   if (state.user) {
+    //     fetchUser();
+    //   }
+    // }, [state.user]);
   
-    console.log('AuthContext state: ', state);
+    // console.log('AuthContext state: ', state);
   
     return (
       <AuthContext.Provider value={{ ...state, dispatch }}>
