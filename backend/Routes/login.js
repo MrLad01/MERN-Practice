@@ -7,7 +7,7 @@ require('../Strategies/local')
 
 router.post('/login', passport.authenticate('local'), (req, res)=> {
     console.log('Logged in!');
-    res.status(200).send('Welcome you bloody thwart')
+    res.status(200).send({'msg':'Welcome you bloody thwart'})
 })
 
 router.get('/:last_name', async (req, res)=>{
