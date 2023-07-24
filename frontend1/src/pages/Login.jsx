@@ -23,15 +23,16 @@ const Login = () => {
         });
 
         console.log(response);
+        const jsonData = await response.json()
 
         if(!response.ok){
           setIsLoading(false);
-          setError(json.error)
+          setError(jsonData.error)
         }
 
 
         if(response.ok){
-          dispatch({type: 'LOGIN', payload: json})
+          dispatch({type: 'LOGIN', payload: jsonData})
           setIsLoading(false)
         }
 
