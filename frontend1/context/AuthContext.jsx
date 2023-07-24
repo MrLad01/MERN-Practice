@@ -50,4 +50,3 @@ export const AuthContextProvider = ({ children }) => {
   };
 
 
-  export default UserProfile;
