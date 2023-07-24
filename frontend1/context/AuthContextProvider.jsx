@@ -41,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
         try {
           // Make an API request to fetch user data by ID
           const {last_name} = useParams();
-          const response = await fetch(`/api/users/${last_name}`);
+          const response = await fetch(`http://localhost:4000/user/${last_name}`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
