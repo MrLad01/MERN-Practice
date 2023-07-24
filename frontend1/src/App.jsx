@@ -17,8 +17,7 @@ const App = () => {
     createRoutesFromElements(
       <AuthContextProvider>
         <Routes>
-          <Route path='/:last_name' element={user ? <HomeComponent />: <Navigate to="/login"/>} />
-
+          <Route path='/:last_name' element={<HomeComponent />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
