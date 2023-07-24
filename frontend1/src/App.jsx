@@ -16,9 +16,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Routes>
-       <AuthContextProvider> 
-          <Route path='/' element={user ? <Home />: <Navigate to="/login"/>} />
-        </AuthContextProvider>
+        <Route path='/' element={user ? <Home />: <Navigate to="/login"/>} />
 
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
