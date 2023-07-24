@@ -14,18 +14,18 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <AuthContextProvider>
-        <Routes>
+        <Route>
           <Route path='/:last_name' element={<HomeComponent />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-        </Routes>
-      </AuthContextProvider>
+        </Route>
     )
   )
 
   return (
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+     <RouterProvider router={router} />
+    </AuthContextProvider>
   )
 }
 
