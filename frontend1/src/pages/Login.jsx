@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Link } from 'react-router-dom'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { useAuthContext } from '../../context/AuthContextProvider'
 
 const Login = () => {
 
