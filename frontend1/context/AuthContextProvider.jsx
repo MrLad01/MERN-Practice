@@ -1,3 +1,5 @@
+
+import { useContext } from "react";
 import React, { useState } from 'react';
 import { createContext, useReducer, useEffect} from 'react'
 
@@ -13,6 +15,18 @@ export const authReducer = (state, action) => {
             return state
     }
 }
+
+export const useAuthContext = () => {
+    const context = useContext(AuthContext)
+
+    if (!context) {
+        throw Error('useAuthContext cannot be used inside an AuthContextProvider')
+    }
+
+    return context
+}
+
+
 
 export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {
