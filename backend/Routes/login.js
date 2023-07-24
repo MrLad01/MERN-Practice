@@ -13,7 +13,7 @@ router.post('/login', passport.authenticate('local'), (req, res)=> {
 router.get('/:last_name', async (req, res)=>{
     const {last_name} = req.params;
     try{
-        const userProfile = await User.find((g) => g.last_name == last_name);
+        const userProfile = await User.find({last_name});
         res.status(200).send(userProfile)
     }catch(err){
         console.error(err);
