@@ -29,7 +29,7 @@ export const useAuthContext = () => {
 
 
 
-export const AuthContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children, last_name }) => {
     const [state, dispatch] = useReducer(authReducer, {
       user: null
     });
@@ -40,7 +40,6 @@ export const AuthContextProvider = ({ children }) => {
       const fetchUser = async () => {
         try {
           // Make an API request to fetch user data by ID
-          const {last_name} = useParams();
           const response = await fetch(`http://localhost:4000/user/${last_name}`);
           if (!response.ok) {
             throw new Error('Network response was not ok');

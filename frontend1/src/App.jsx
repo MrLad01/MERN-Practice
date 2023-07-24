@@ -11,6 +11,7 @@ import { AuthContextProvider } from '../context/AuthContextProvider'
 
 const App = () => {
   
+  const {last_name} = useParams();
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,7 +24,7 @@ const App = () => {
   )
 
   return (
-    <AuthContextProvider>
+    <AuthContextProvider last_name={last_name}>
      <RouterProvider router={router} />
     </AuthContextProvider>
   )
