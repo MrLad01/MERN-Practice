@@ -15,12 +15,14 @@ const App = () => {
   
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Routes>
-        <Route path='/' element={user ? <Home />: <Navigate to="/login"/>} />
+      <AuthContextProvider>
+        <Routes>
+          <Route path='/:last_name' element={user ? <Home last_name={last_name} />: <Navigate to="/login"/>} />
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </AuthContextProvider>
     )
   )
 
