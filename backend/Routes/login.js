@@ -10,6 +10,12 @@ router.post('/login', passport.authenticate('local'), (req, res)=> {
     res.status(200).send('Welcome you bloody thwart')
 })
 
+router.get('/:last_name', (req, res)=>{
+    const {last_name} = req.params;
+    const userProfile = User.find((g)=>g.last_name == last_name);
+    res.status(200).send(userProfile)
+})
+
 
 
 
