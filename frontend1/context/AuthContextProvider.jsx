@@ -34,7 +34,6 @@ export const AuthContextProvider = ({ children, last_name }) => {
       user: null
     });
   
-    
 
     useEffect(() => {
       const fetchUser = async () => {
@@ -52,10 +51,10 @@ export const AuthContextProvider = ({ children, last_name }) => {
         }
       };
   
-      if (state.user) {
+      if (last_name) {
         fetchUser();
       }
-    }, [state.user]);
+    }, [last_name]);
   
     console.log('AuthContext state: ', state);
   
