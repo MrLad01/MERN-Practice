@@ -4,7 +4,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import { useAuthContext } from '../hooks/useAuthContext'
 import Home from './pages/Home'
-import { AuthContextProvider } from '../context/AuthContext'
+import { AuthContextProvider } from '../context/AuthContextProvider'
 
 
 
