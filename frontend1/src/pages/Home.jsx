@@ -1,35 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Home = ({last_name}) => {
-  const [user, setUser] = useState(null);
-  
+const Home = () => {
+  const { last_name } = useParams();
+  const [userData, setUserData] = useState(null);
+
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUserData = async () => {
       try {
-        // Make an API request to fetch user data by ID
-        const response = await fetch(`http:localhost:4000/user/${last_name}`);
+        const response = await fetch(`http://localhost:4000/user/${last_name}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const userData = await response.json();
-        setUser(userData);
+        setUserData(userData);
       } catch (error) {
-        // Handle errors...
         console.error(error);
       }
     };
 
-    fetchUser();
+    fetchUserData();
   }, [last_name]);
-
-  console.log('User profile: ', user);
 
   return (
     <div>
-      {/* Display user profile data here */}
-      {user && <p>Hello, {user.name}!</p>}
+      {userData ? (
+        <>
+          <h1>Welcome {userData.name}</h1>
+          {/* Render other user data here */}
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
