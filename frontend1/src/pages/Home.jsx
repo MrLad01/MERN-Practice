@@ -20,13 +20,13 @@ const Home = () => {
     };
 
     fetchUserData();
-  }, [last_name]);
+  }, []);
 
   return (
     <div>
       {userData ? (
         <>
-          <h1>Welcome {userData.first_name}</h1>
+          <h1>Welcome {userData[0].first_name}</h1>
           {/* Render other user data here */}
         </>
       ) : (
