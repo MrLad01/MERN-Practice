@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { createContext, useReducer, useEffect} from 'react'
 
 export const AuthContext = createContext()
@@ -15,22 +16,35 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {
-        user: null
-    })
-
+      user: null
+    });
+  
     useEffect(() => {
-        // const user = JSON.parse(localStorage.getItem('user'))
-
-        if (user) {
-            dispatch({type: 'LOGIN', payload: user})
+      const fetchUser = async () => {
+        try {
+          // Make an API request to fetch user data by ID
+          const response = await fetch(`/api/users/${state.user.last_name}`);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const userData = await response.json();
+          dispatch({ type: 'LOGIN', payload: userData });
+        } catch (error) {
+          // Handle errors...
+          console.error(error);
         }
-    }, [dispatch])
-
-    console.log('AuthContext state: ', state)
-
+      };
+  
+      if (state.user) {
+        fetchUser();
+      }
+    }, [state.user]);
+  
+    console.log('AuthContext state: ', state);
+  
     return (
-        <AuthContext.Provider value={{...state, dispatch}}>
-            { children }
-        </AuthContext.Provider>
-    )
-}
+      <AuthContext.Provider value={{ ...state, dispatch }}>
+        {children}
+      </AuthContext.Provider>
+    );
+  };
