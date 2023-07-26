@@ -21,12 +21,14 @@ const Home = () => {
 
     fetchUserData();
   }, []);
+  
+  const {first_name} = userData[0]
 
   return (
     <div>
       {userData[0] ? (
         <>
-          <h1>Welcome {userData[0].first_name}</h1>
+          <h1>Welcome {first_name}</h1>
           {/* Render other user data here */}
         </>
       ) : (
