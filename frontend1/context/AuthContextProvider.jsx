@@ -27,12 +27,12 @@ export const useAuthContext = () => {
         throw Error('useAuthContext cannot be used inside an AuthContextProvider')
     }
 
-    return context
+    return {...context}
 }
 
 
 
-export const AuthContextProvider = ({ children}) => {
+export const AuthContextProvider = ({ children, last_name }) => {
     const [state, dispatch] = useReducer(authReducer, {
       user: null,
       last_name: null
