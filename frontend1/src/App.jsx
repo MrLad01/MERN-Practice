@@ -39,7 +39,7 @@ const HomeComponent = () => {
 
 
 const LoginComponent = () => {
-  const { user, last_name } = useAuthContext();
+  const { user,last_name} = useAuthContext();
 
   return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
 };

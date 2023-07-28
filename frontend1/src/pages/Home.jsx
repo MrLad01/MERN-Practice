@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContextProvider';
 
 const Home = () => {
-  const { last_name } = useParams();
   const [userData, setUserData] = useState(null);
+  const { last_name } = useParams();
 
   useEffect(() => {
     const fetchUserData = async () => {

@@ -34,15 +34,16 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children}) => {
     const [state, dispatch] = useReducer(authReducer, {
-      user: null
+      user: null,
+      last_name: null
     });
 
-    const {last_name} = useParams()
-  
-
+    
+    
     useEffect(() => {
       const fetchUser = async () => {
         try {
+          const {last_name} = useParams()
           // Make an API request to fetch user data by ID
           const response = await fetch(`http://localhost:4000/user/${last_name}`);
           if (!response.ok) {
@@ -50,7 +51,7 @@ export const AuthContextProvider = ({ children}) => {
           }
           const userData = await response.json();
           console.log('API Response:', userData); 
-          dispatch({ type: 'LOGIN', payload: userData });
+          dispatch({ type: 'LOGIN', payload: { user: userData, last_name: last_name }  });
         } catch (error) {
           // Handle errors...
           console.error(error);
@@ -60,7 +61,7 @@ export const AuthContextProvider = ({ children}) => {
       if (!state.user) {
         fetchUser();
       }
-    }, [last_name]);
+    }, [state.user]);
   
     console.log('AuthContext state: ', state);
   
