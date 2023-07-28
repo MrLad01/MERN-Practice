@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children, last_name }) => {
         }
       };
   
-      if (last_name) {
+      if (!state.user) {
         fetchUser();
       }
     }, [last_name]);
