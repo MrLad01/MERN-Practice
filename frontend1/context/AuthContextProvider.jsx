@@ -18,7 +18,7 @@ export const authReducer = (state, action) => {
 }
 
 export const useAuthContext = () => {
-    const context = useContext(AuthContext)
+    const context = React.useContext(AuthContext)
 
     if (!context) {
         throw Error('useAuthContext cannot be used inside an AuthContextProvider')
