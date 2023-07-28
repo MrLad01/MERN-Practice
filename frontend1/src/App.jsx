@@ -32,7 +32,7 @@ const App = () => {
 }
 
 const HomeComponent = () => {
-  const { last_name } = useParams(); // Accessing the last_name parameter from the URL
+  const { last_name } = useAuthContext(); // Accessing the last_name parameter from the URL
   const { user } = useAuthContext();
 
   return user ? <Home last_name={last_name} /> : <Navigate to="/login" />;
@@ -40,9 +40,9 @@ const HomeComponent = () => {
 
 
 const LoginComponent = () => {
-  const { user } = useAuthContext();
+  const { user, last_name } = useAuthContext();
 
-  return !user ? <Login /> : <Navigate to={`/${user[0].last_name}`} />;
+  return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
 };
 
 export default App
