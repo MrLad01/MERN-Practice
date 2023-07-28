@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContextProvider';
 
 const Home = () => {
   const [userData, setUserData] = useState(null);
@@ -21,16 +20,14 @@ const Home = () => {
     };
 
     fetchUserData();
-  }, [userData]);
-  
-
+  }, []); // Empty dependency array for the optimized useEffect
 
   return (
     <div>
       {userData ? (
         <>
-          <h1>Welcome Back, {userData[0].gender == "Female" ? "Mrs." : "Mr."}{userData[0].first_name}</h1>
-          <h3>Please confirm your data {userData[0].gender == "Male" ?"sir":"Ma"}</h3>
+          <h1>Welcome Back, {userData[0].gender === "Female" ? "Mrs." : "Mr."} {userData[0].first_name}</h1>
+          <h3>Please confirm your data {userData[0].gender === "Male" ? "sir" : "Ma"}</h3>
           <h5>id: {userData[0].id}</h5>
           <h5>first_name: {userData[0].first_name}</h5>
           <h5>last_name: {userData[0].last_name}</h5>
