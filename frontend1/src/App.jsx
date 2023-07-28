@@ -25,7 +25,7 @@ const App = () => {
   )
 
   return (
-    <AuthContextProvider last_name={last_name}>
+    <AuthContextProvider>
      <RouterProvider router={router} />
     </AuthContextProvider>
   )

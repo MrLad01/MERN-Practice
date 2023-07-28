@@ -5,7 +5,7 @@ import { createContext, useReducer, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 
 
-const {last_name} = useParams()
+
 
 export const AuthContext = createContext()
 
@@ -21,7 +21,7 @@ export const authReducer = (state, action) => {
 }
 
 export const useAuthContext = () => {
-    const context = React.useContext(AuthContext)
+    const context = useContext(AuthContext)
 
     if (!context) {
         throw Error('useAuthContext cannot be used inside an AuthContextProvider')
@@ -32,10 +32,12 @@ export const useAuthContext = () => {
 
 
 
-export const AuthContextProvider = ({ children, last_name }) => {
+export const AuthContextProvider = ({ children}) => {
     const [state, dispatch] = useReducer(authReducer, {
       user: null
     });
+
+    const {last_name} = useParams()
   
 
     useEffect(() => {
