@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import { useAuthContext } from '../../context/AuthContextProvider';
 
 const Home = () => {
-  const [userData, setUserData] = useState(null);
-  const { last_name } = useParams();
+  const { user } = useAuthContext();
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(`http://localhost:4000/user/${last_name}`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const userData = await response.json();
-        setUserData(userData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchUserData();
-  }, [last_name]); // Empty dependency array for the optimized useEffect
-
-
-  if (!userData || userData.length === 0) {
-    return <div>Loading...</div>;
+  if (!user || user.length === 0) {
+    // Redirect to login if user data is not available
+    return <Navigate to="/login" />;
   }
 
-  const user = userData[0];
-  const title = user.gender === "Female" ? "Mrs." : "Mr.";
-
+  const { last_name } = user[0]; // Access the last_name directly from user data
+  const title = user[0].gender === 'Female' ? 'Mrs.' : 'Mr.';
 
   return (
     <div>
-          <h1>Welcome Back, {title} {user.first_name}</h1>
-          <h3>Please confirm your data {user.gender === "Male" ? "sir" : "Ma"}</h3>
-          <h5>id: {user.id}</h5>
-          <h5>first_name: {user.first_name}</h5>
-          <h5>last_name: {user.last_name}</h5>
-          <h5>email: {user.email}</h5>
-          <h5>gender: {user.gender}</h5>
-          <h5>ip_address: {user.ip_address}</h5>
-          {/* Render other user data here */}
+      <h1>Welcome Back, {title} {user[0].first_name}</h1>
+      <h3>Please confirm your data {user[0].gender === 'Male' ? 'sir' : 'Ma'}</h3>
+      <h5>id: {user[0].id}</h5>
+      <h5>first_name: {user[0].first_name}</h5>
+      <h5>last_name: {user[0].last_name}</h5>
+      <h5>email: {user[0].email}</h5>
+      <h5>gender: {user[0].gender}</h5>
+      <h5>ip_address: {user[0].ip_address}</h5>
+      {/* Render other user data here */}
     </div>
   );
 };

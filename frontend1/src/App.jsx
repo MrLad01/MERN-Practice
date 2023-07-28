@@ -25,7 +25,7 @@ const App = () => {
   )
 
   return (
-    <AuthContextProvider>
+    <AuthContextProvider last_name={last_name}>
      <RouterProvider router={router} />
     </AuthContextProvider>
   )
@@ -39,10 +39,10 @@ const HomeComponent = () => {
 
 
 const LoginComponent = () => {
-  const { user } = useAuthContext();
-  const params = useParams();
+  const { user, last_name } = useAuthContext();
 
-  return !user ? <Login /> : <Navigate to={`/${params.last_name}`} />;
+
+  return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
 };
 
 export default App
