@@ -32,10 +32,9 @@ const App = () => {
 }
 
 const HomeComponent = () => {
-  const { last_name } = useAuthContext(); // Accessing the last_name parameter from the URL
   const { user } = useAuthContext();
 
-  return user ? <Home last_name={last_name} /> : <Navigate to="/login" />;
+  return user ? <Home /> : <Navigate to="/login" />;
 };
 
 
