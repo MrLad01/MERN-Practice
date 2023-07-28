@@ -2,7 +2,10 @@
 import { useContext } from "react";
 import React, { useState } from 'react';
 import { createContext, useReducer, useEffect} from 'react'
+import { useParams } from "react-router-dom";
 
+
+const {last_name} = useParams()
 
 export const AuthContext = createContext()
 
