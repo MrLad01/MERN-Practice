@@ -25,7 +25,7 @@ export const useAuthContext = () => {
   return { ...context };
 };
 
-export const AuthContextProvider = ({ children, last_name }) => {
+export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     last_name: null,
@@ -34,13 +34,15 @@ export const AuthContextProvider = ({ children, last_name }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        const { last_name } = useParams();
         // Make an API request to fetch user data by ID
         const response = await fetch(`http://localhost:4000/user/${last_name}`);
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error('Network response was not ok');
         }
         const userData = await response.json();
-        dispatch({ type: "LOGIN", payload: { user: userData, last_name } });
+        console.log('API Response:', userData);
+        dispatch({ type: 'LOGIN', payload: { user: userData, last_name: last_name } });
       } catch (error) {
         // Handle errors...
         console.error(error);
@@ -50,7 +52,8 @@ export const AuthContextProvider = ({ children, last_name }) => {
     if (!state.user) {
       fetchUser();
     }
-  }, [last_name, state.user]); // Include last_name in the dependency array
+  }, []); // Empty dependency array for the optimized useEffect
+
 
   console.log("AuthContext state: ", state);
 
