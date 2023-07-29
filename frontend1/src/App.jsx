@@ -37,12 +37,12 @@ const HomeComponent = () => {
   return user ? <Home /> : <Navigate to="/login" />;
 };
 
-
 const LoginComponent = () => {
-  const { user, last_name } = useAuthContext();
-
+  const { user } = useAuthContext();
+  const { last_name } = useParams(); // Accessing the last_name parameter from the URL
 
   return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
 };
+
 
 export default App
