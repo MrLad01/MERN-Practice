@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import React, { useState } from "react";
-import { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
 export const authReducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN":
+    case 'LOGIN':
       return { user: action.payload.user };
-    case "LOGOUT":
+    case 'LOGOUT':
       return { user: null };
     default:
       return state;
@@ -16,10 +15,10 @@ export const authReducer = (state, action) => {
 };
 
 export const useAuthContext = () => {
-  const context = useContext(AuthContext);
+  const context = React.useContext(AuthContext);
 
   if (!context) {
-    throw Error("useAuthContext cannot be used inside an AuthContextProvider");
+    throw Error('useAuthContext cannot be used inside an AuthContextProvider');
   }
 
   return { ...context };
@@ -27,13 +26,14 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
-    user: null
+    user: null,
   });
+
+  const { last_name } = useParams();
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const { last_name } = useParams();
         // Make an API request to fetch user data by ID
         const response = await fetch(`http://localhost:4000/user/${last_name}`);
         if (!response.ok) {
@@ -51,10 +51,9 @@ export const AuthContextProvider = ({ children }) => {
     if (!state.user) {
       fetchUser();
     }
-  }, []); // Empty dependency array for the optimized useEffect
+  }, [last_name, state.user]); // Add last_name and state.user as dependencies
 
-
-  console.log("AuthContext state: ", state);
+  console.log('AuthContext state: ', state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

@@ -11,7 +11,7 @@ import { AuthContextProvider } from '../context/AuthContextProvider'
 
 const App = () => {
   
-  const { last_name = '' } = useParams({ defaultValue: '' });
+  // const { last_name = '' } = useParams({ defaultValue: '' });
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,7 +25,7 @@ const App = () => {
   )
 
   return (
-    <AuthContextProvider last_name={last_name}>
+    <AuthContextProvider>
      <RouterProvider router={router} />
     </AuthContextProvider>
   )
@@ -38,8 +38,8 @@ const HomeComponent = () => {
 };
 
 const LoginComponent = () => {
-  const { user } = useAuthContext();
-  const { last_name } = useParams(); // Accessing the last_name parameter from the URL
+  const { user, last_name } = useAuthContext();
+
 
   return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
 };
