@@ -27,8 +27,7 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
-    user: null,
-    last_name: null,
+    user: null
   });
 
   useEffect(() => {
@@ -42,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
         }
         const userData = await response.json();
         console.log('API Response:', userData);
-        dispatch({ type: 'LOGIN', payload: { user: userData, last_name: last_name } });
+        dispatch({ type: 'LOGIN', payload: { user: userData } });
       } catch (error) {
         // Handle errors...
         console.error(error);
