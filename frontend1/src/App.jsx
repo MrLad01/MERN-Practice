@@ -17,9 +17,9 @@ const App = () => {
     createRoutesFromElements(
         <Route>
           <Route index element={<HomeComponent />} />
-          <Route path='/:last_name' element={<HomeComponent />} />
           <Route path='/login' element={<LoginComponent />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/:last_name' element={<HomeComponent />} />
         </Route>
     )
   )
@@ -38,7 +38,7 @@ const HomeComponent = () => {
 };
 
 const LoginComponent = () => {
-  const { user, last_name } = useAuthContext();
+  const { user } = useAuthContext();
 
 
   return !user ? <Login /> : <Navigate to={`/${last_name}`} />;

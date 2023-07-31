@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthContext } from '../../context/AuthContextProvider';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 
 const Home = () => {
-  const { user } = useAuthContext();
   const { last_name } = useParams();
+  const [userData, setUserData] = useState();
 
 
   useEffect(() => {
@@ -21,10 +21,9 @@ const Home = () => {
       }
     };
 
-    if (!user) {
+ 
       fetchUserData();
-    }
-  }, []); //
+  }, [last_name]); //
 
   if (!userData || userData.length === 0) {
     return <div>Loading...</div>;
