@@ -32,16 +32,16 @@ const App = () => {
 }
 
 const HomeComponent = () => {
-  const { user } = useAuthContext();
-
-  return user ? <Home /> : <Navigate to="/login" />;
+  const { state } = useAuthContext();
+  
+  return state.user ? <Home /> : <Navigate to="/login" />;
 };
 
 const LoginComponent = () => {
-  const { user } = useAuthContext();
+  const { state } = useAuthContext();
+  console.log(state);
 
-
-  return !user ? <Login /> : <Navigate to={`/${last_name}`} />;
+  return !state.user ? <Login /> : <Navigate to={`/signup`} />;
 };
 
 
