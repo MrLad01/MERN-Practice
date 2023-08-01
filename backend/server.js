@@ -6,6 +6,7 @@ const session = require('express-session')
 require('./database')
 const loginRoute = require('./Routes/login')
 const registerRoute = require('./Routes/register');
+const profileRoute = require('./Routes/profile')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const cors = require('cors')
@@ -37,6 +38,7 @@ app.use(passport.session());
 
 app.use('/user', loginRoute)
 app.use('/user', registerRoute)
+app.use('/user', profileRoute)
 
 app.use((req, res, next) => {
     if(req.session.user) next();

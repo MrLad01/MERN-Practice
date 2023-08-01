@@ -18,16 +18,6 @@ router.post('/login', passport.authenticate('local'), async(req, res)=> {
 
 })
 
-router.get('/:last_name', async (req, res)=>{
-    const {last_name} = req.params;
-    try{
-        const userProfile = await User.find({last_name});
-        res.status(200).send(userProfile)
-    }catch(err){
-        console.error(err);
-        res.status(500).send('Server Error');
-    }
-})
 
 
 
