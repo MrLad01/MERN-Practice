@@ -11,7 +11,6 @@ import { AuthContextProvider } from '../context/AuthContextProvider'
 
 const App = () => {
   
-  // const { last_name = '' } = useParams({ defaultValue: '' });
 
   const router = createBrowserRouter(
     createRoutesFromElements(
