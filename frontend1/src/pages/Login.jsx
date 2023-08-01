@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
-    const { dispatch } = useAuthContext()
+    const { state, dispatch } = useAuthContext()
 
     async function submit(e) {
       e.preventDefault();
