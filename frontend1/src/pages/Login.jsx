@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Link } from 'react-router-dom'
 import { useAuthContext } from '../../context/AuthContextProvider'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -10,35 +11,28 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(null)
     const { state, dispatch } = useAuthContext()
 
+    const navigate = useNavigate();
+
     async function submit(e) {
       e.preventDefault();
-      try{
+      // try{
         setIsLoading(true);
         setError(null);
         const body = { email, password }
-        const response = await fetch('http://localhost:4000/user/login', {
-          method: 'POST',
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(body)
-        });
+        try {
+          const response = await fetch('http://localhost:4000/user/login', {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(body)
+              })
 
-        console.log(response);
-        const jsonData = await response.json()
-
-        if(!response.ok){
-          setIsLoading(false);
-          setError(jsonData.error)
-        }
-
-
-        if(response.ok){
-          dispatch({type: 'LOGIN', payload: jsonData})
-          setIsLoading(false)
-        }
-
+          const jsonData = await response.json()
+          console.log(jsonData);
+          dispatch({type: "LOGIN", payload: jsonData});
+          navigate(`/${jsonData.last_name}`);
       } catch(err){
-        console.error(err.message)
-      }
+          console.error(err.message)
+        }
     }
 
   return (

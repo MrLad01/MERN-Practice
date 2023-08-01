@@ -16,7 +16,7 @@ const App = () => {
     createRoutesFromElements(
         <Route>
           <Route index element={<HomeComponent />} />
-          <Route path='/login' element={<LoginComponent />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/:last_name' element={<HomeComponent />} />
         </Route>
@@ -32,15 +32,7 @@ const App = () => {
 
 const HomeComponent = () => {
   const { state } = useAuthContext();
-  
   return state.user ? <Home /> : <Navigate to="/login" />;
-};
-
-const LoginComponent = () => {
-  const { state } = useAuthContext();
-  console.log(state);
-
-  return !state.user ? <Login /> : <Navigate to={`/signup`} />;
 };
 
 
