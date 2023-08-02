@@ -5,24 +5,6 @@ import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 const Home = () => {
   const { state } = useAuthContext();
 
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //       const response = await fetch(`http://localhost:4000/user/${last_name}`);
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const userData = await response.json();
-  //       setUserData(userData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
- 
-  //     fetchUserData();
-  // }, [last_name]); //
-
   if (!state.user) {
     return <div>Loading...</div>;
   }
